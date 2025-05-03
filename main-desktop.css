@@ -1,0 +1,301 @@
+:root{
+    --border-color: rgba(255, 0, 0, 0);
+
+    --soft-teal: rgba(100, 180, 180, 1);
+    --misty-aqua: rgba(175, 220, 220, 1);
+    --deep-slate: rgba(50, 70, 80, 1);
+    --light-mint: rgba(230, 250, 250, 1);
+}
+
+/******************************* name element selectors *******************************************/
+
+body{
+    color: var(--deep-slate);
+    height: 100vh;
+    width: 100%;
+    border: 2px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--misty-aqua);
+    margin: auto;
+    padding-bottom: 4vh;
+}
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 3vw;
+    height: 10vh;
+    width: 100%;
+    border: 2px solid var(--border-color);
+    background-color: var(--soft-teal);
+    padding-left: 2%;
+    
+}
+
+footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 7vh;
+    width: 100%;
+    border: 2px solid var(--border-color);
+    background-color: var(--soft-teal);
+    margin-top: 3vh;
+
+}
+h1{
+    max-width: 30vw;
+    text-align: center;
+    border: 2px solid var(--border-color);
+    
+}
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: auto;
+    width: 45vw;
+    background-color: var(--light-mint);
+    border: 2px solid var(--border-color);
+    padding: 1%;
+    border-radius: 20px;
+}
+
+fieldset{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    border: 2px solid var(--border-color);
+}
+
+input{
+    border: 2px solid var(--deep-slate);
+    border-radius: 8px;
+}
+
+
+/******************************** form elements ******************************************/
+
+.captionContainer{
+    font-size: 2vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid var(--border-color);
+    width: 95%;
+    padding: 2%;
+
+}
+.inputContainer{
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.75vh;
+    margin-bottom: 0.75vh;
+}
+
+.addButton{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    border: 2px solid var(--border-color);
+    width: 100%;
+    height: 4vh;
+}
+
+#addMore{
+    background-image: url('icons/icons8-plus-button-50.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: rgba(0,0,0,0);
+    border: none;
+    height: 4vh;
+    width: 3vw;
+    background-size: contain;
+}
+
+/******************************* anchors *******************************************/
+
+a{
+    text-decoration: none;
+    color: var(--deep-slate);
+}
+
+.blockAnchor{
+    display: inline-block;
+    height: 3vh;
+    width: 5vw;
+}
+
+/****************************** back buttons ********************************************/
+
+
+.backButton{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 5vw;
+    height: 3vh;
+    border: 2px solid var(--border-color);
+    background-color: var(--light-mint);
+    background-image: url('icons/icons8-back-arrow-50.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 10px;
+}
+.backButton:active{
+    filter: brightness(85%);
+}
+.backButton.extra{
+    width: 5vw;
+    height: 3vh;
+}
+
+.backContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    border: 2px solid var(--border-color);
+    height: auto;
+    padding-left: 2%;
+}
+.backContainer.one{
+    margin-top: 1vh;
+    width: 100vw;
+}
+.backContainer.two{
+    margin-bottom: 1vh;
+    width: 70%;
+}
+
+/******************************* flashcards *******************************************/
+
+
+#flashCards{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    border: 2px solid var(--border-color);
+    padding: 2%;
+}
+
+.flashcard{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    height: auto;
+    border: 2px solid var(--border-color);
+    margin-top: 1.25vh;
+    margin-bottom: 1.25vh;
+    padding: 2%;
+    background-color: var(--light-mint);
+    border-radius: 20px;
+    perspective: 4000px;
+}
+
+.content{
+    height: 100%;
+    width: 100%;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+}
+
+.flashcard:hover .content{
+    transform: rotateY(180deg);
+    transition: transform 0.5s;
+}
+
+.front,.back{
+    backface-visibility: hidden;
+}
+
+.front{
+    transform: rotateY(0deg);
+}
+.back{
+    transform: rotateY(180deg);
+}
+
+/***************************** button class *********************************************/
+
+#enterButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    width: 14vw;
+    background-color: var(--light-mint);
+    border-radius: 20px;
+    border: 2px solid var(--border-color);
+}
+
+#unique{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    height: 10vh;
+    width: 14vw;
+    font-size: 2.5vw;
+    font-weight: 800;
+}
+
+#entry{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--border-color);
+}
+
+/****************************** button class ********************************************/
+
+.progressButton{
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 6vh;
+    width: 6vw;
+    font-size: 1.5vw;
+}
+.progressButton:active{
+    filter: brightness(85%);
+}
+.progressButton.zero{
+    background-color: var(--misty-aqua);
+}
+.progressButton.one{
+    background-color: var(--light-mint);
+}
+
+/****************************** icons ********************************************/
+
+.imageContainer{
+    background-image: url('icons/icons8-stack-of-books-100.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 12vh;
+    width: 7vw;
+    border: 2px solid var(--border-color);
+    
+}
