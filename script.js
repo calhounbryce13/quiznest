@@ -14,8 +14,20 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
     flashcard_generation();
 
+    card_flip_functionality();
+
 });
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+const card_flip_functionality = function(){
+    const cards = Array.from(document.querySelectorAll('.flashcard'));
+    for(let i = 0; i < cards.length; i++){
+        cards[i].addEventListener('click', (event)=>{
+            event.currentTarget.classList.toggle('flip');
+        });
+    }
+
+}
 
 const check_window_size = function(){
     const windowWidth = document.documentElement.clientWidth;
