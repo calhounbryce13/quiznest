@@ -1,0 +1,24 @@
+goal:
+Create a web application that allows users to enter questions and answers in key-value pairs, so that they can view their study material and optionally view the correct answers.
+
+
+
+user stories:
+
+story #1: As a user I want to be able to input questions and their respective answers in order to have flashcards
+made for me to study from.
+
+story #2: As a user I want to be able to view my made flashcards in order to see the material I need to study.
+
+story #3: As a user I want to be able to optionally 'flip over' any given card to reveal the answer.
+
+story#4: As a user I want to be able to optionally clear my made flashcards so I can start a new set.
+
+
+
+
+TODO
+
+
+
+-------------------------
