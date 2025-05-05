@@ -65,6 +65,9 @@ form{
     border: 2px solid var(--border-color);
     padding: 1%;
     border-radius: 20px;
+    animation: slide_up .5s ease-out forwards;
+    animation-delay: 1600ms;
+    opacity: 0;
 }
 
 fieldset{
@@ -172,6 +175,9 @@ a{
     border: 2px solid var(--border-color);
     height: auto;
     padding-left: 2%;
+    animation: slide_up 1s ease-out forwards;
+    animation-delay: 800ms;
+    opacity: 0;
 }
 .backContainer.one{
     margin-top: 1vh;
@@ -301,3 +307,34 @@ a{
     border: 2px solid var(--border-color);
     
 }
+
+
+.logo{
+    animation: slide_right 1s ease-out forwards;
+    animation-delay: 700ms;
+    transform: translateX(-20vw);
+}
+
+/****************************** animation functions ********************************************/
+
+@keyframes slide_up{
+    0%{
+        transform: translateY(5vh);
+    }
+    100%{
+        transform: translateY(0vh);
+        opacity: 1;
+    }
+}
+
+@keyframes slide_right{
+    0%{
+        transform: translateX(-20vw);
+    }
+    100%{
+        transform: translateX(0vw);\
+    }
+}
+
+
+
