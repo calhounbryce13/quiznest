@@ -254,6 +254,9 @@ a{
     border-radius: 20px;
     border: 2px solid var(--border-color);
 }
+#enterButton:active{
+    filter: brightness(85%);
+}
 
 #unique{
     display: flex;
