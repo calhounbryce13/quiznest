@@ -1,6 +1,7 @@
 'use strict';
 
-//! why do i need to refresh the page in order to delete after deleting a card?
+//! need to refresh the page in order to delete after deleting a card !
+//! empty set message doesn't show consistently !
 
 
 document.addEventListener('DOMContentLoaded', ()=>{
