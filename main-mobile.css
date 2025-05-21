@@ -277,6 +277,27 @@ a{
 
 /****************************** button class ********************************************/
 
+.delete-container{
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    border: 2px solid var(--border-color);
+}
+.delete-button{
+    border-radius: 10px;
+    background-color: rgba(0,0,0,0);
+    height: 4vh;
+    width: 8vw;
+    background-image: url(icons/delete-icon.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+/****************************** button class ********************************************/
+
 .progressButton{
     border: 2px solid var(--border-color);
     border-radius: 10px;

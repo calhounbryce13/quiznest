@@ -1,7 +1,11 @@
 'use strict';
 
+//! why do i need to refresh the page in order to delete after deleting a card?
+
 
 document.addEventListener('DOMContentLoaded', ()=>{
+
+    init_storage();
 
     check_window_size();
     window.addEventListener('resize', ()=>{
@@ -16,8 +20,61 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
     card_flip_functionality();
 
+    delete_card_functionality();
+
 });
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+const init_storage = function(){
+    if(!localStorage.getItem("Quiznest")){
+        localStorage.setItem("Quiznest", JSON.stringify({}));
+    }
+}
+const set_user_data = function(answers, questions){
+    let userData = {
+        "questions": questions,
+        "answers": answers
+    }
+    localStorage.setItem("Quiznest", JSON.stringify(userData));
+}
+
+const clear_screen = function(){
+    const parent = document.getElementById('flashCards');
+    while(parent.children.length > 0){
+        parent.removeChild(parent.lastChild);
+    }
+}
+
+const attach_event_listener = function(myButtons){
+    for(let i = 0; i < myButtons.length; i++){
+        myButtons[i].addEventListener('click', ()=>{
+            let userAnswers = JSON.parse(localStorage.getItem("Quiznest")).answers;
+            let userQuestions = JSON.parse(localStorage.getItem("Quiznest")).questions;
+            userAnswers.splice(i, 1);
+            userQuestions.splice(i, 1);
+            set_user_data(userAnswers, userQuestions);
+            clear_screen();
+            if(userAnswers.length == 0){
+                display_empty_message();
+            }
+            else{
+                flashcard_generation();
+            }
+
+            
+
+        });
+    }
+}
+
+const delete_card_functionality = function(){
+    const myButtons = Array.from(document.getElementsByClassName('delete-button'));
+    if(myButtons){
+        attach_event_listener(myButtons);
+    }
+}
+
+
 
 const card_flip_functionality = function(){
     const cards = Array.from(document.querySelectorAll('.flashcard'));
@@ -43,13 +100,13 @@ const check_window_size = function(){
 
 const flashcard_generation = function(){
     if(window.location.pathname.endsWith('/userhome.html')){
-        let answers = JSON.parse(localStorage.getItem('answers'));
-        let questions = JSON.parse(localStorage.getItem('questions'));
-        if(!answers){
+        let userAnswers = JSON.parse(localStorage.getItem('Quiznest')).answers;
+        let userQuestions = JSON.parse(localStorage.getItem('Quiznest')).questions;
+        if(!userAnswers){
             display_empty_message();
         }
         else{
-            populate_flashcard_view(questions, answers);
+            populate_flashcard_view(userQuestions, userAnswers);
         }
     }
 }
@@ -71,12 +128,24 @@ const make_flashcard = function(questions, answers, i){
     let newFront = create_card_face(questions, i, true);
     let newBack = create_card_face(answers, i, false);
     let newContent = create_card_content(newFront, newBack);
+    let delteOption = create_delete_container();
 
     let newFlashcard = document.createElement('div');
     newFlashcard.classList.add('flashcard');
+    newFlashcard.appendChild(delteOption);
     newFlashcard.appendChild(newContent);
 
     return newFlashcard;
+}
+
+const create_delete_container = function(){
+    let button = document.createElement('button');
+    button.classList.add('delete-button');
+    let container = document.createElement('div');
+    container.classList.add('delete-container');
+    container.appendChild(button);
+
+    return container;
 }
 
 
@@ -129,6 +198,7 @@ const form_functionality = function(){
                 store_info(inputs, numInputs);
             }
             window.location.href = 'userhome.html';
+            console.log(JSON.parse(localStorage.getItem('Quiznest')))
         });
     }
 
@@ -149,10 +219,11 @@ const add_new_row = function(){
 const store_info = function(inputs, numInputs){
     let questions = [];
     let answers = [];
-    if(localStorage.getItem('answers')){
-        if(localStorage.getItem('answers')[0] != ''){
-            questions = JSON.parse(localStorage.getItem('questions'));
-            answers = JSON.parse(localStorage.getItem('answers'));
+    //console.log(JSON.parse(localStorage.getItem('Quiznest')))
+    if(JSON.parse(localStorage.getItem('Quiznest')).answers){
+        if((JSON.parse(localStorage.getItem('Quiznest')).answers)[0] != ""){
+            questions = JSON.parse(localStorage.getItem('Quiznest')).questions;
+            answers = JSON.parse(localStorage.getItem('Quiznest')).answers;
         }
     }
     for(let i = 0; i < numInputs; i++){
@@ -163,12 +234,11 @@ const store_info = function(inputs, numInputs){
             answers.push(inputs[i].value);
         }
     }
-    localStorage.setItem("questions", JSON.stringify(questions));
-    localStorage.setItem("answers", JSON.stringify(answers));
+    set_user_data(answers, questions);
 }
 
 const display_empty_message = function(){
-    console.log("here")
+    
     const flashCards = document.getElementById('flashCards');
 
     let messageText = document.createElement('p');
