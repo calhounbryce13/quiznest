@@ -185,11 +185,23 @@ const clear_flashcards_functionality = function(){
     }
 }
 
+const clear_placeholder_text = function(){
+    const inputs = Array.from(document.getElementsByClassName('flash-card-input'));
+    if(inputs){
+        for(let i = 0; i < inputs.length; i++){
+            inputs[i].addEventListener('click', (event)=>{
+                event.target.placeholder = "";
+            });
+        }
+    }
+}
+
 const form_functionality = function(){
     const myform = document.getElementById('myForm');
     const addmore = document.getElementById('addMore');
     if(addmore && myform){
         addmore.addEventListener('click', add_new_row);
+        clear_placeholder_text();
 
         myform.addEventListener('submit', (event)=>{
             event.preventDefault();
