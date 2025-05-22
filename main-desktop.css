@@ -5,6 +5,7 @@
     --misty-aqua: rgba(175, 220, 220, 1);
     --deep-slate: rgba(50, 70, 80, 1);
     --light-mint: rgba(230, 250, 250, 1);
+    --deep-orange: rgba(242, 153, 74, 1);
 }
 
 /******************************* name element selectors *******************************************/
@@ -80,8 +81,13 @@ fieldset{
 }
 
 input{
-    border: 2px solid var(--deep-slate);
+    outline: none;
+    border: 2px solid var(--misty-aqua);
     border-radius: 8px;
+    width: 40%;
+}
+input:focus{
+    border: 3px solid var(--deep-orange);
 }
 
 
