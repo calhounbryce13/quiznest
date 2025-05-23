@@ -246,6 +246,8 @@ a{
 .back{
     transform: rotateY(180deg);
 }
+
+/*
 #quiz-button-container{
     height: 6vh;
     width: 70%;
@@ -265,6 +267,7 @@ a{
     border: 2px solid var(--deep-slate);
     border-radius: 15px;
 }
+    */
 
 /***************************** button class *********************************************/
 
