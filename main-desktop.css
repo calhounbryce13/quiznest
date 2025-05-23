@@ -378,7 +378,7 @@ a{
         transform: translateX(-20vw);
     }
     100%{
-        transform: translateX(0vw);\
+        transform: translateX(0vw);
     }
 }
 
