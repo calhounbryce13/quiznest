@@ -246,6 +246,25 @@ a{
 .back{
     transform: rotateY(180deg);
 }
+#quiz-button-container{
+    height: 6vh;
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    border: 2px solid var(--border-color);
+}
+#quiz-button{
+    background-image: url(icons/idea-icon.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 90%;
+    width: 13vw;
+    border: 2px solid var(--deep-slate);
+    border-radius: 15px;
+}
 
 /***************************** button class *********************************************/
 

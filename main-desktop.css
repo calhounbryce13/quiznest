@@ -1,3 +1,11 @@
+
+
+/*
+next time make a universal 'container' class
+with default flexbox styling and specify further 
+with subclasses. You are re-using code too frequently.
+*/
+
 :root{
     --border-color: rgba(255, 0, 0, 0);
 
@@ -141,7 +149,6 @@ a{
     text-decoration: none;
     color: var(--deep-slate);
 }
-
 .blockAnchor{
     display: inline-block;
     height: 3vh;
@@ -246,6 +253,26 @@ a{
 }
 .back{
     transform: rotateY(180deg);
+}
+
+#quiz-button-container{
+    height: 6vh;
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    border: 2px solid var(--border-color);
+}
+#quiz-button{
+    background-image: url(icons/idea-icon.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 90%;
+    width: 4vw;
+    border: 2px solid var(--deep-slate);
+    border-radius: 15px;
 }
 
 /***************************** button class *********************************************/

@@ -19,6 +19,8 @@ story#4: As a user I want to be able to optionally clear my made flashcards so I
 
 TODO
 
+story #5: As a user I want to be able to optionally enter text answers to my questions and get a response on whether 	my text was correct or not based on the answer I previously provided so that I can assess my understanding of 	my study material.
+
 
 
 -------------------------
