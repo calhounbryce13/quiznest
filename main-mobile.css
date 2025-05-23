@@ -302,6 +302,17 @@ a{
     background-size: contain;
 }
 
+#clear-button-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--border-color);
+}
+.subtext-container{
+    font-size: 1.7vh;
+}
+
 /****************************** button class ********************************************/
 
 .progressButton{

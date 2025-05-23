@@ -202,7 +202,6 @@ const form_functionality = function(){
     if(addmore && myform){
         addmore.addEventListener('click', add_new_row);
         clear_placeholder_text();
-
         myform.addEventListener('submit', (event)=>{
             event.preventDefault();
             const inputs = Array.from(document.getElementsByTagName('input'));

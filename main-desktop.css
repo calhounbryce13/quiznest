@@ -308,6 +308,17 @@ a{
     filter: invert(11%) sepia(97%) saturate(5453%);
 }
 
+#clear-button-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--border-color);
+}
+.subtext-container{
+    font-size: 1.7vh;
+}
+
 /****************************** button class ********************************************/
 
 .progressButton{
@@ -317,7 +328,7 @@ a{
     justify-content: center;
     align-items: center;
     height: 6vh;
-    width: 6vw;
+    width: 8vw;
     font-size: 1.5vw;
 }
 .progressButton:active{
