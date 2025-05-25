@@ -24,6 +24,52 @@ document.addEventListener('DOMContentLoaded', ()=>{
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
+const error_container_styling = function(){
+    const container = document.createElement('div');
+    container.classList.add('container');
+    container.style.flexDirection = 'column';
+    container.style.padding = '5vh';
+    container.style.borderRadius = '20px';
+    container.style.border = '2px solid var(--deep-orange)';
+    container.style.backgroundColor = 'var(--soft-teal)';
+    add_error_icon(container);
+
+    return container;
+}
+
+const add_error_icon = function(parent){
+    let container = document.createElement('div');
+    container.classList.add('container');
+    container.id = 'error-icon-container';
+    parent.appendChild(container);
+
+}
+const error_message = function(message){
+    const body = document.getElementById('quiz');
+    let temp = [];
+    while(body.children.length > 0){
+        temp.push(body.lastChild);
+        body.removeChild(body.lastChild);
+    }
+    const text = document.createElement('p');
+    text.style.fontSize = '200%';
+    text.textContent = message;
+
+    const container = error_container_styling();
+    container.appendChild(text);
+
+    body.appendChild(container);
+
+    setTimeout(()=>{
+        body.removeChild(body.lastChild);
+        for(let i = (temp.length - 1); i >= 0; i--){
+            body.appendChild(temp[i]);
+        }
+    }, (message.length) * 90)
+
+}
+
+
 const empty_container = function(quizContainer){
     while(quizContainer.children.length > 0){
         quizContainer.removeChild(quizContainer.lastChild);
@@ -51,10 +97,25 @@ const generate_question_form = function(quizContainer, index){
     const submitButton = document.createElement('button');
     submitButton.textContent = 'submit';
     submitButton.id = 'submit-quiz-answer';
-    submitButton.addEventListener('click', ()=>{
-        
 
 
+
+    submitButton.addEventListener('click', async()=>{
+        if(inputBox.value != ''){
+            const userAnswer = inputBox.value;
+            /*
+            let chatBotResponse = await fetch('', {
+                headers:{
+                    "Authorization": "Bearer "
+                }
+            })
+            */
+
+        }
+        else{
+            error_message("you need to enter an answer in the text field");
+        }
+    
     });
 
     const answerContainer = document.createElement('div');
@@ -81,7 +142,6 @@ const generate_question_form = function(quizContainer, index){
 const quiz_session = function(quizContainer){
     console.log((JSON.parse(localStorage.getItem("Quiznest")).questions).length);
     for(let x = 0; x < (JSON.parse(localStorage.getItem("Quiznest")).questions).length; x++){
-        console.log("here");
         generate_question_form(quizContainer, x);
         //send_fetch();
         //ui_response();
@@ -203,7 +263,7 @@ const build_quiz_button_container = function(){
     return container;
 }
 
-
+//! uncomment this
 const populate_flashcard_view = function(questions, answers){
     let numCards = answers.length;
     const flashCards = document.getElementById('flashCards');
@@ -211,8 +271,8 @@ const populate_flashcard_view = function(questions, answers){
     console.log("here");
     for(let i = 0; i < numCards; i++){
         if(i == 0){
-            const quizContainer = build_quiz_button_container();
-            flashCards.append(quizContainer);
+            //!const quizContainer = build_quiz_button_container();
+            //!flashCards.append(quizContainer);
         }
         if(answers[i] != ""){
             const newFlashcard = make_flashcard(questions, answers, i);

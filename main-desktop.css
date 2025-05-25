@@ -99,11 +99,6 @@ with subclasses. You are re-using code too frequently.
 
 }
 
-
-
-
-
-
 /******************************* name element selectors *******************************************/
 
 body{
@@ -455,6 +450,18 @@ a{
 }
 .progressButton.one{
     background-color: var(--light-mint);
+}
+
+
+#error-icon-container{
+    width: 90%;
+    height: 7vh;
+    background-image: url('icons/error-icon.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: 2px solid var(--border-color);
+    
 }
 
 /****************************** icons ********************************************/
