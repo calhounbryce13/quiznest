@@ -16,6 +16,94 @@ with subclasses. You are re-using code too frequently.
     --deep-orange: rgba(242, 153, 74, 1);
 }
 
+/******************************* default container styling *******************************************/
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--border-color);
+}
+
+
+/******************************* quiz session elements *******************************************/
+
+
+#start-quiz{
+    margin-bottom: 20vh;
+    height: 10vh;
+    width: 20vw;
+    border-radius: 20px;
+    background-color: var(--soft-teal);
+}
+
+#start-quiz-button{
+    color: var(--deep-slate);
+    border: none;
+    border-radius: 20px;
+    background-color: rgba(0,0,0,0);
+    height: 100%;
+    width: 100%;
+    font-size: 300%;
+    font-family: inherit;
+}
+#start-quiz:hover{
+    background-color: var(--light-mint);
+}
+#quiz{
+    width: 70%;
+    margin-bottom: 20vh;
+}
+
+#quiz-flashcard-container{
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    flex-direction: column;
+    border-radius: 20px;
+    border: 2px solid var(--deep-orange);
+    background-color: var(--soft-teal);
+}
+
+#quiz-question-container{
+    height: auto;
+    width: 80%;
+}
+
+.quiz-question{
+    font-size: 2vw;
+    text-align: center;
+}
+
+#quiz-form-container{
+    width: 80%;
+    justify-content: space-between;
+    margin-top: 10vh;
+}
+
+#quiz-answer-input{
+    font-size: 1.5vw;
+}
+
+#submit-quiz-answer{
+    color: var(--deep-slate);
+    font-family: inherit;
+    font-size: 1.5vw;
+    background-color: var(--light-mint);
+    border-radius: 10px;
+    height: 8vh;
+    width: 6vw;
+    border: none;
+}
+#submit-quiz-answer:active{
+    filter: brightness(85%);
+
+}
+
+
+
+
+
+
 /******************************* name element selectors *******************************************/
 
 body{
@@ -61,7 +149,7 @@ h1{
     max-width: 30vw;
     text-align: center;
     border: 2px solid var(--border-color);
-    
+    color: var(--deep-slate);
 }
 form{
     display: flex;
@@ -93,6 +181,7 @@ input{
     border: 2px solid var(--misty-aqua);
     border-radius: 8px;
     width: 40%;
+    font-family: inherit;
 }
 input:focus{
     border: 3px solid var(--deep-orange);
@@ -254,7 +343,7 @@ a{
 .back{
     transform: rotateY(180deg);
 }
-/*
+
 #quiz-button-container{
     height: 6vh;
     width: 70%;
@@ -274,7 +363,6 @@ a{
     border: 2px solid var(--deep-slate);
     border-radius: 15px;
 }
-*/
 
 /***************************** button class *********************************************/
 

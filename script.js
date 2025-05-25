@@ -9,22 +9,104 @@ document.addEventListener('DOMContentLoaded', ()=>{
     init_storage();
 
     check_window_size();
-    window.addEventListener('resize', ()=>{
-        check_window_size();
-    });
-
-    clear_flashcards_functionality();
+    listen_for_resize();
 
     form_functionality();
 
     flashcard_generation();
-
+    clear_flashcards_functionality();
     card_flip_functionality();
-
     delete_card_functionality();
+
+    quiz_initalization();
 
 });
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+const empty_container = function(quizContainer){
+    while(quizContainer.children.length > 0){
+        quizContainer.removeChild(quizContainer.lastChild);
+    }
+}
+
+const generate_question_form = function(quizContainer, index){
+    const questionText = document.createElement('p');
+    questionText.textContent = Array.from(JSON.parse(localStorage.getItem("Quiznest")).questions)[index];
+    console.log(questionText.textContent);
+    questionText.classList.add('quiz-question');
+
+    const questionContainer = document.createElement('div');
+    questionContainer.classList.add('container');
+    questionContainer.id = 'quiz-question-container';
+
+    questionContainer.appendChild(questionText);
+
+    const inputBox = document.createElement('input');
+    inputBox.id = 'quiz-answer-input';
+    inputBox.type = 'text';
+    inputBox.placeholder = 'your answer';
+    inputBox.style.minWidth = '15vw';
+
+    const submitButton = document.createElement('button');
+    submitButton.textContent = 'submit';
+    submitButton.id = 'submit-quiz-answer';
+    submitButton.addEventListener('click', ()=>{
+        
+
+
+    });
+
+    const answerContainer = document.createElement('div');
+    answerContainer.style.minWidth = '30vw';
+    answerContainer.style.padding = '1vw';
+
+    answerContainer.classList.add('container');
+    answerContainer.id = 'quiz-form-container';
+
+    answerContainer.appendChild(inputBox);
+    answerContainer.appendChild(submitButton);
+
+    const parent = document.createElement('div');
+    parent.appendChild(questionContainer);
+    parent.appendChild(answerContainer);
+    parent.classList.add('container');
+    parent.id = 'quiz-flashcard-container';
+
+    console.log(quizContainer);
+    quizContainer.appendChild(parent);
+
+}
+
+const quiz_session = function(quizContainer){
+    console.log((JSON.parse(localStorage.getItem("Quiznest")).questions).length);
+    for(let x = 0; x < (JSON.parse(localStorage.getItem("Quiznest")).questions).length; x++){
+        console.log("here");
+        generate_question_form(quizContainer, x);
+        //send_fetch();
+        //ui_response();
+        //empty_container(quizContainer);
+    }
+}
+
+const quiz_initalization = function(){
+    const quizButton = document.getElementById('start-quiz-button');
+    const quizContainer = document.getElementById('quiz')
+    if(quizButton && quizContainer){
+        quizButton.addEventListener('click', ()=>{
+            empty_container(quizContainer);
+            quiz_session(quizContainer);
+            //show_results();
+        });
+    }
+}
+
+
+const listen_for_resize = function(){
+    window.addEventListener('resize', ()=>{
+        check_window_size();
+    });
+}
 
 const init_storage = function(){
     if(!localStorage.getItem("Quiznest")){
@@ -61,9 +143,6 @@ const attach_event_listener = function(myButtons){
             else{
                 flashcard_generation();
             }
-
-            
-
         });
     }
 }
@@ -112,11 +191,29 @@ const flashcard_generation = function(){
     }
 }
 
+const build_quiz_button_container = function(){
+    const anchor = document.createElement('a');
+    anchor.id = 'quiz-button';
+    anchor.href = 'quiz.html';
+
+    const container = document.createElement('div');
+    container.id = 'quiz-button-container';
+    container.appendChild(anchor);
+
+    return container;
+}
+
 
 const populate_flashcard_view = function(questions, answers){
     let numCards = answers.length;
     const flashCards = document.getElementById('flashCards');
+    console.log(numCards);
+    console.log("here");
     for(let i = 0; i < numCards; i++){
+        if(i == 0){
+            const quizContainer = build_quiz_button_container();
+            flashCards.append(quizContainer);
+        }
         if(answers[i] != ""){
             const newFlashcard = make_flashcard(questions, answers, i);
             flashCards.appendChild(newFlashcard);
