@@ -55,7 +55,7 @@ with subclasses. You are re-using code too frequently.
     margin-bottom: 20vh;
 }
 
-#quiz-flashcard-container{
+.quiz-flashcard-container{
     padding-top: 5vh;
     padding-bottom: 5vh;
     flex-direction: column;
@@ -74,17 +74,17 @@ with subclasses. You are re-using code too frequently.
     text-align: center;
 }
 
-#quiz-form-container{
+.quiz-form-container{
     width: 80%;
     justify-content: space-between;
     margin-top: 10vh;
 }
 
-#quiz-answer-input{
+.quiz-answer-input{
     font-size: 1.5vw;
 }
 
-#submit-quiz-answer{
+.submit-quiz-answer{
     color: var(--deep-slate);
     font-family: inherit;
     font-size: 1.5vw;
@@ -177,6 +177,7 @@ input{
     border-radius: 8px;
     width: 40%;
     font-family: inherit;
+    font-size: 3vh;
 }
 input:focus{
     border: 3px solid var(--deep-orange);
@@ -357,6 +358,7 @@ a{
     width: 4vw;
     border: 2px solid var(--deep-slate);
     border-radius: 15px;
+    background-color: var(--deep-orange);
 }
 
 /***************************** button class *********************************************/
@@ -453,15 +455,22 @@ a{
 }
 
 
-#error-icon-container{
-    width: 90%;
-    height: 7vh;
-    background-image: url('icons/error-icon.svg');
+.icon-container{
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
     border: 2px solid var(--border-color);
-    
+    width: 90%;
+    height: 7vh;
+}
+#error{
+    background-image: url('icons/error-icon.svg');
+}
+#correct{
+    background-image: url('icons/correct-icon.svg');
+}
+#incorrect{
+    background-image: url('icons/incorrect-icon.svg');
 }
 
 /****************************** icons ********************************************/
