@@ -237,7 +237,7 @@ const attach_event_listener = function(myButtons){
             userAnswers.splice(i, 1);
             userQuestions.splice(i, 1);
             set_user_data(userAnswers, userQuestions);
-            window.reload();
+            window.Location.reload();
             /*
             clear_screen();
             if(userAnswers.length == 0){
@@ -433,7 +433,8 @@ const add_new_row = function(){
     const newContainer = document.createElement('div');
     newContainer.classList.add('inputContainer');
     for(let i = 0; i < 2; i++){
-        const newInput = document.createElement('input');
+        const newInput = document.createElement('textarea');
+        newInput.classList.add('flash-card-input');
         newInput.setAttribute("type","text");
         newContainer.appendChild(newInput);
     }
