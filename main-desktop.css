@@ -29,6 +29,16 @@ with subclasses. You are re-using code too frequently.
 /******************************* quiz session elements *******************************************/
 
 
+
+textarea{
+    font-family: inherit;
+    border: 4px solid var(--deep-slate);
+    width: 45%;
+    height: auto;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
 #start-quiz{
     margin-bottom: 20vh;
     height: 10vh;

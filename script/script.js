@@ -9,16 +9,19 @@ document.addEventListener('DOMContentLoaded', ()=>{
     init_storage();
 
     check_window_size();
+
     listen_for_resize();
 
     form_functionality();
 
     flashcard_generation();
-    clear_flashcards_functionality();
-    card_flip_functionality();
-    delete_card_functionality();
 
-    //quiz_initalization();
+    clear_flashcards_functionality();
+
+    card_flip_functionality();
+
+    delete_card_functionality(); //todo
+
 
 });
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -75,64 +78,9 @@ const empty_container = function(quizContainer){
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**************************************************************************/
+/**************************************************************************/
+/**************************************************************************/
 
 const compare_responses = function(user, actual){
     if(user === actual){
@@ -247,75 +195,9 @@ const quiz_initalization = function(){
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**************************************************************************/
+/**************************************************************************/
+/**************************************************************************/
 const listen_for_resize = function(){
     window.addEventListener('resize', ()=>{
         check_window_size();
@@ -336,8 +218,13 @@ const set_user_data = function(answers, questions){
 }
 
 const clear_screen = function(){
+    console.log("\nhere\n");
     const parent = document.getElementById('flashCards');
+    console.log("\nparent:", parent);
+
     while(parent.children.length > 0){
+
+        console.log("\nremoving child: ", parent.lastChild)
         parent.removeChild(parent.lastChild);
     }
 }
@@ -350,6 +237,8 @@ const attach_event_listener = function(myButtons){
             userAnswers.splice(i, 1);
             userQuestions.splice(i, 1);
             set_user_data(userAnswers, userQuestions);
+            window.reload();
+            /*
             clear_screen();
             if(userAnswers.length == 0){
                 display_empty_message();
@@ -357,6 +246,7 @@ const attach_event_listener = function(myButtons){
             else{
                 flashcard_generation();
             }
+            */
         });
     }
 }
@@ -507,7 +397,19 @@ const clear_placeholder_text = function(){
     }
 }
 
+const dynamic_textarea_height = function(){
+    if(document.getElementsByTagName('textarea')){
+        Array.from(document.getElementsByTagName('textarea')).forEach((singleTextarea) => {
+
+            
+
+        })
+    }
+}
+
 const form_functionality = function(){
+    dynamic_textarea_height();
+
     const myform = document.getElementById('myForm');
     const addmore = document.getElementById('addMore');
     if(addmore && myform){
