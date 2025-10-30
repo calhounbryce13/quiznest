@@ -163,6 +163,7 @@ fieldset{
 }
 
 textarea{
+    color: var(--deep-slate);
     font-family: inherit;
 }
 textarea:focus{

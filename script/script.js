@@ -238,15 +238,6 @@ const attach_event_listener = function(myButtons){
             userQuestions.splice(i, 1);
             set_user_data(userAnswers, userQuestions);
             window.location.reload();
-            /*
-            clear_screen();
-            if(userAnswers.length == 0){
-                display_empty_message();
-            }
-            else{
-                flashcard_generation();
-            }
-            */
         });
     }
 }
@@ -399,9 +390,12 @@ const clear_placeholder_text = function(){
 const dynamic_textarea_height = function(){
     if(document.getElementsByTagName('textarea')){
         Array.from(document.getElementsByTagName('textarea')).forEach((singleTextarea) => {
-
-            
-
+            singleTextarea.style.height = 'auto';
+            singleTextarea.style.height = singleTextarea.scrollHeight + 'px';
+            singleTextarea.addEventListener('input', () => {
+                singleTextarea.style.height = 'auto';
+                singleTextarea.style.height = singleTextarea.scrollHeight + 'px';
+            });
         })
     }
 }
