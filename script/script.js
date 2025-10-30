@@ -417,7 +417,7 @@ const form_functionality = function(){
         clear_placeholder_text();
         myform.addEventListener('submit', (event)=>{
             event.preventDefault();
-            const inputs = Array.from(document.getElementsByTagName('input'));
+            const inputs = Array.from(document.getElementsByTagName('textarea'));
             const numInputs = inputs.length;
             if(inputs[1].value != ""){
                 store_info(inputs, numInputs);
