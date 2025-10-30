@@ -38,6 +38,9 @@ textarea{
     overflow: hidden;
     border-radius: 10px;
 }
+textarea:focus{
+    border: 4px solid var(--deep-orange);
+}
 
 #start-quiz{
     margin-bottom: 20vh;
