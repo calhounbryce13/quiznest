@@ -237,7 +237,7 @@ const attach_event_listener = function(myButtons){
             userAnswers.splice(i, 1);
             userQuestions.splice(i, 1);
             set_user_data(userAnswers, userQuestions);
-            window.Location.reload();
+            window.location.reload();
             /*
             clear_screen();
             if(userAnswers.length == 0){
