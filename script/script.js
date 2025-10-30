@@ -312,7 +312,6 @@ const populate_flashcard_view = function(questions, answers){
     let numCards = answers.length;
     const flashCards = document.getElementById('flashCards');
     console.log(numCards);
-    console.log("here");
     for(let i = 0; i < numCards; i++){
         if(i == 0){
             //!const quizContainer = build_quiz_button_container();
