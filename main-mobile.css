@@ -310,6 +310,8 @@ a{
 }
 
 .content{
+    font-size: 4vw;
+
     height: 100%;
     width: 100%;
     transition: transform 1s;
@@ -331,6 +333,7 @@ a{
     transform: rotateY(0deg);
 }
 .back{
+    color: red;
     transform: rotateY(180deg);
 }
 
