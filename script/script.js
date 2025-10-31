@@ -232,12 +232,14 @@ const clear_screen = function(){
 const attach_event_listener = function(myButtons){
     for(let i = 0; i < myButtons.length; i++){
         myButtons[i].addEventListener('click', ()=>{
-            let userAnswers = JSON.parse(localStorage.getItem("Quiznest")).answers;
-            let userQuestions = JSON.parse(localStorage.getItem("Quiznest")).questions;
-            userAnswers.splice(i, 1);
-            userQuestions.splice(i, 1);
-            set_user_data(userAnswers, userQuestions);
-            window.location.reload();
+            if(confirm("are you sure you want to permanently delete this flashcard?")){
+                let userAnswers = JSON.parse(localStorage.getItem("Quiznest")).answers;
+                let userQuestions = JSON.parse(localStorage.getItem("Quiznest")).questions;
+                userAnswers.splice(i, 1);
+                userQuestions.splice(i, 1);
+                set_user_data(userAnswers, userQuestions);
+                window.location.reload();
+            }
         });
     }
 }
@@ -370,8 +372,10 @@ const clear_flashcards_functionality = function(){
     const clearButton = document.getElementById('clearData');
     if(clearButton){
         clearButton.addEventListener('click', ()=>{
-            localStorage.clear();
-            window.location.reload();
+            if(confirm("Are you sure you want to permanently clear your current set of flashcards?")){
+                localStorage.clear();
+                window.location.reload();
+            }
         })
     }
 }
