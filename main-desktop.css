@@ -1,10 +1,6 @@
 
 
-/*
-next time make a universal 'container' class
-with default flexbox styling and specify further 
-with subclasses. You are re-using code too frequently.
-*/
+@import url('https://fonts.googleapis.com/css2?family=Zain:ital,wght@0,200;0,300;0,400;0,700;0,800;0,900;1,300;1,400&display=swap');
 
 :root{
     --border-color: rgba(255, 0, 0, 0);
@@ -28,6 +24,10 @@ with subclasses. You are re-using code too frequently.
 
 /******************************* quiz session elements *******************************************/
 
+
+*{
+    font-family: 'zain';
+}
 
 
 textarea{
@@ -231,6 +231,8 @@ input:focus{
     width: 100%;
     height: 4vh;
 }
+
+
 
 #addMore{
     background-image: url('icons/icons8-plus-button-50.png');

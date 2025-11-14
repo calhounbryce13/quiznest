@@ -1,3 +1,8 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Zain:ital,wght@0,200;0,300;0,400;0,700;0,800;0,900;1,300;1,400&display=swap');
+
+
+
 :root{
     --border-color: rgba(255, 0, 0, 0);
 
@@ -8,6 +13,10 @@
     --deep-orange: rgba(242, 153, 74, 1);
 }
 
+
+*{
+    font-family: 'zain';
+}
 
 
 /******************************* default container styling *******************************************/
