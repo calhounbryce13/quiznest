@@ -18,6 +18,10 @@
     font-family: 'zain';
 }
 
+.hero-image{
+    display: none;
+}
+
 
 /******************************* default container styling *******************************************/
 
