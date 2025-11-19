@@ -27,6 +27,12 @@
 /******************************* quiz session elements *******************************************/
 
 
+html, body{
+    overflow-x: hidden;
+    height: 100%;
+    width: 100%;
+}
+
 *{
     font-family: 'zain';
 }
@@ -145,13 +151,11 @@ textarea:focus{
 
 body{
     color: var(--deep-slate);
-    height: 100vh;
-    width: 100%;
     border: 2px solid var(--border-color);
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
     background-color: var(--misty-aqua);
     margin: auto;
     padding-bottom: 4vh;
@@ -159,15 +163,23 @@ body{
 header{
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     font-size: 3vw;
     height: 10vh;
     width: 100%;
     border: 2px solid var(--border-color);
     background-color: var(--soft-teal);
-    padding-left: 2%;
-    
+}
+
+#feedback{
+    background-image: url('./icons/icons8-feedback-100.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-right: 2vw;
+    height: 90%;
+    width: 5%;
 }
 
 footer{
