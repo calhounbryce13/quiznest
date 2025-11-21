@@ -168,7 +168,7 @@ textarea:focus{
 .backdrop{
     height: 100%;
     width: 100%;
-    position: absolute;
+    position: fixed;
     top: -100%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -181,7 +181,7 @@ textarea:focus{
 }
 
 .feedback-form{
-    position: absolute;
+    position: fixed;
     top: -100%;
     left: 50%;
     transform: translate(-50%, -50%);
