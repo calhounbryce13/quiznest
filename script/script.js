@@ -47,7 +47,13 @@ const submit_feedback = function(){
         if((input.value).trim() != ''){
             try{
                 const response = await fetch('https://calhounbryce13-backend.onrender.com/mailer', {
-                    method: "GET"
+                    method: "POST",
+                    headers: {
+                        "Content-type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        'message': input.value
+                    })
                 })
                 switch(response.status){
                     case 200:
