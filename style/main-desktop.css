@@ -14,6 +14,21 @@
     --hero-size: 20vw;
 }
 
+
+
+.empty-text{
+    font-size: 2.5vw;
+    font-weight: 400;
+}
+
+.empty-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: 65%;
+}
+
 /******************************* default container styling *******************************************/
 
 .container{
@@ -77,75 +92,7 @@ textarea:focus{
     border: 4px solid var(--deep-orange);
 }
 
-#start-quiz{
-    margin-bottom: 20vh;
-    height: 10vh;
-    width: 20vw;
-    border-radius: 20px;
-    background-color: var(--soft-teal);
-}
 
-#start-quiz-button{
-    color: var(--deep-slate);
-    border: none;
-    border-radius: 20px;
-    background-color: rgba(0,0,0,0);
-    height: 100%;
-    width: 100%;
-    font-size: 300%;
-    font-family: inherit;
-}
-#start-quiz:hover{
-    background-color: var(--light-mint);
-}
-#quiz{
-    width: 70%;
-    margin-bottom: 20vh;
-}
-
-.quiz-flashcard-container{
-    padding-top: 5vh;
-    padding-bottom: 5vh;
-    flex-direction: column;
-    border-radius: 20px;
-    border: 2px solid var(--deep-orange);
-    background-color: var(--soft-teal);
-}
-
-#quiz-question-container{
-    height: auto;
-    width: 80%;
-}
-
-.quiz-question{
-    font-size: 2vw;
-    text-align: center;
-}
-
-.quiz-form-container{
-    width: 80%;
-    justify-content: space-between;
-    margin-top: 10vh;
-}
-
-.quiz-answer-input{
-    font-size: 1.5vw;
-}
-
-.submit-quiz-answer{
-    color: var(--deep-slate);
-    font-family: inherit;
-    font-size: 1.5vw;
-    background-color: var(--light-mint);
-    border-radius: 10px;
-    height: 8vh;
-    width: 6vw;
-    border: none;
-}
-#submit-quiz-answer:active{
-    filter: brightness(85%);
-
-}
 
 /******************************* name element selectors *******************************************/
 

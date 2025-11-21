@@ -543,10 +543,12 @@ const display_empty_message = function(){
     const flashCards = document.getElementById('flashCards');
 
     let messageText = document.createElement('p');
-    messageText.style.textAlign = 'center'
+    messageText.style.textAlign = 'center';
+    messageText.classList.add('empty-text');
     messageText.innerText = 'No flashcards made :( \n go back to the form page to add flashcards to your set!';
 
     let messageContainer = document.createElement('div');
+    messageContainer.classList.add('empty-container');
     messageContainer.appendChild(messageText);
 
     flashCards.appendChild(messageContainer);

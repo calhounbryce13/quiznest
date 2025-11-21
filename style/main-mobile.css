@@ -23,6 +23,20 @@
 }
 
 
+.empty-text{
+    font-size: 6vw;
+    font-weight: 700;
+}
+
+.empty-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: 85%;
+}
+
+
 /******************************* default container styling *******************************************/
 
 .container{
@@ -32,76 +46,8 @@
     border: 2px solid var(--border-color);
 }
 
-/******************************* quiz session elements *******************************************/
 
-#start-quiz{
-    margin-bottom: 20vh;
-    height: 10vh;
-    width: 40vw;
-    border-radius: 20px;
-    background-color: var(--soft-teal);
-}
 
-#start-quiz-button{
-    color: var(--deep-slate);
-    border: none;
-    border-radius: 20px;
-    background-color: rgba(0,0,0,0);
-    height: 100%;
-    width: 40vw;
-    font-size: 9vw;
-    font-family: inherit;
-}
-
-#start-quiz:hover{
-    background-color: var(--light-mint);
-}
-
-#quiz{
-    width: 80%;
-    margin-bottom: 20vh;
-}
-
-#quiz-flashcard-container{
-    width: 90%;
-    padding-top: 5vh;
-    padding-bottom: 5vh;
-    flex-direction: column;
-    border-radius: 20px;
-    border: 4px solid var(--deep-orange);
-    background-color: var(--soft-teal);
-}
-
-#quiz-question-container{
-    height: auto;
-    width: 80%;
-}
-
-.quiz-question{
-    font-size: 5vw;
-    text-align: center;
-}
-
-#quiz-form-container{
-    width: 90%;
-    justify-content: space-between;
-    margin-top: 10vh;
-}
-
-#quiz-answer-input{
-    font-size: 3.5vw;
-}
-
-#submit-quiz-answer{
-    color: var(--deep-slate);
-    font-family: inherit;
-    font-size: 4.5vw;
-    background-color: var(--light-mint);
-    border-radius: 10px;
-    height: 8vh;
-    width: 16vw;
-    border: none;
-}
 
 /******************************* name element selectors *******************************************/
 
@@ -522,10 +468,19 @@ a{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 6vh;
-    width: 25vw;
-    font-size: 4.5vw;
+    height: auto;
+    width: 65%;
+    font-size: 5.5vw;
 }
+
+#myForm > button{
+    font-size: 7.5vw;
+
+}
+
+
+
+
 .progressButton:active{
     filter: brightness(85%);
 }
