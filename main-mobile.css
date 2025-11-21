@@ -138,6 +138,20 @@ header{
     padding-left: 2%;
     
 }
+textarea{
+    border: 4px solid var(--deep-slate);
+    color: var(--deep-slate);
+    font-family: inherit;
+    width: 45%;
+    height: auto;
+    overflow: hidden;
+    border-radius: 10px;
+    font-size: 4vw;
+}
+textarea:focus{
+    border: 4px solid var(--deep-orange);
+}
+
 #feedback{
     background-image: url('./icons/icons8-feedback-100.png');
     background-position: center;
@@ -146,6 +160,86 @@ header{
     margin-right: 2vw;
     height: 90%;
     width: 15%;
+}
+#feedback:active{
+    filter: brightness(55%);
+}
+
+.backdrop{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: -100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(50,70,80,0.25);
+    transition: top 0.5s ease-in-out;
+    z-index: 10;
+}
+.backdrop-show{
+    top: 50%;
+}
+
+.feedback-form{
+    position: absolute;
+    top: -100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: auto;
+    width: 70%;
+    padding: 2%;
+    border-radius: 20px;
+    z-index: 11;
+    transition: top 0.5s ease-in-out;
+    background-color: var(--light-mint);
+}
+
+.feedback-show{
+    top: 50%;
+}
+
+.feedback-form > div{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: auto;
+}
+
+.feedback-form > *{
+    background-color: rgba(0,0,0,0);
+    width: 100%;
+}
+
+fieldset > *{
+    margin-bottom: 3vh;
+    width: 90%;
+}
+
+fieldset > button{
+    background-color: var(--deep-slate);
+    color: var(--light-mint);
+    height: auto;
+    font-size: 8vw;
+    border: none;
+    border-radius: 20px;
+}
+fieldset > textarea{
+    font-size: 5vw;
+}
+
+fieldset > button:hover{
+    background-color: var(--light-mint);
+    color: var(--deep-slate);
+}
+
+#close-feedback{
+    background-color: var(--light-mint);
+    font-size: 5vw;
+    border-radius: 10px;
+    border: 3px solid var(--deep-slate);
+}
+#close-feedback:active{
+    filter: brightness(75%);
 }
 footer{
     display: flex;
@@ -190,19 +284,7 @@ fieldset{
     border: 2px solid var(--border-color);
 }
 
-textarea{
-    border: 4px solid var(--deep-slate);
-    color: var(--deep-slate);
-    font-family: inherit;
-    width: 45%;
-    height: auto;
-    overflow: hidden;
-    border-radius: 10px;
-    font-size: 4vw;
-}
-textarea:focus{
-    border: 4px solid var(--deep-orange);
-}
+
 
 
 /******************************** form elements ******************************************/

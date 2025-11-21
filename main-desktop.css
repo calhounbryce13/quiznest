@@ -181,8 +181,9 @@ header{
     height: 90%;
     width: 5%;
 }
-
-
+#feedback:active{
+    filter: brightness(55%);
+}
 
 .backdrop{
     height: 100%;
@@ -207,18 +208,14 @@ header{
     height: auto;
     width: 50%;
     padding: 2%;
-    border: 2px solid red;
+    border-radius: 20px;
     z-index: 11;
     transition: top 0.5s ease-in-out;
     background-color: var(--light-mint);
-
-
 }
 
 .feedback-show{
     top: 50%;
-
-
 }
 
 .feedback-form > div{
@@ -226,12 +223,40 @@ header{
     justify-content: flex-end;
     align-items: center;
     height: auto;
-    
 }
 
 .feedback-form > *{
     background-color: rgba(0,0,0,0);
     width: 100%;
+}
+
+fieldset > *{
+    margin-bottom: 3vh;
+    width: 70%;
+}
+
+fieldset > button{
+    background-color: var(--deep-slate);
+    color: var(--light-mint);
+    height: auto;
+    font-size: 3vw;
+    border: none;
+    border-radius: 20px;
+}
+
+fieldset > button:hover{
+    background-color: var(--light-mint);
+    color: var(--deep-slate);
+}
+
+#close-feedback{
+    background-color: var(--light-mint);
+    font-size: 1.5vw;
+    border-radius: 10px;
+    border: 3px solid var(--deep-slate);
+}
+#close-feedback:active{
+    filter: brightness(75%);
 }
 
 
