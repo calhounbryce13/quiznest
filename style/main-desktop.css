@@ -173,7 +173,7 @@ header{
 }
 
 #feedback{
-    background-image: url('./icons/icons8-feedback-100.png');
+    background-image: url('../icons/icons8-feedback-100.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -354,7 +354,7 @@ input:focus{
 
 
 #addMore{
-    background-image: url('icons/icons8-plus-button-50.png');
+    background-image: url('../icons/icons8-plus-button-50.png');
     background-repeat: no-repeat;
     background-position: center;
     background-color: rgba(0,0,0,0);
@@ -388,7 +388,7 @@ a{
     height: 3vh;
     border: 2px solid var(--border-color);
     background-color: var(--light-mint);
-    background-image: url('icons/icons8-back-arrow-50.png');
+    background-image: url('../icons/icons8-back-arrow-50.png');
     background-repeat: no-repeat;
     background-position: center;
     border-radius: 10px;
@@ -477,26 +477,6 @@ a{
     transform: rotateY(180deg);
 }
 
-#quiz-button-container{
-    height: 6vh;
-    width: 70%;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
-    border: 2px solid var(--border-color);
-}
-#quiz-button{
-    background-image: url(icons/idea-icon.svg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    height: 90%;
-    width: 4vw;
-    border: 2px solid var(--deep-slate);
-    border-radius: 15px;
-    background-color: var(--deep-orange);
-}
 
 /***************************** button class *********************************************/
 
@@ -559,7 +539,7 @@ a{
     background-color: rgba(0,0,0,0);
     height: 4vh;
     width: 3vw;
-    background-image: url(icons/delete-icon.svg);
+    background-image: url('../icons/delete-icon.svg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -615,20 +595,11 @@ a{
     width: 90%;
     height: 7vh;
 }
-#error{
-    background-image: url('icons/error-icon.svg');
-}
-#correct{
-    background-image: url('icons/correct-icon.svg');
-}
-#incorrect{
-    background-image: url('icons/incorrect-icon.svg');
-}
 
 /****************************** icons ********************************************/
 
 .imageContainer{
-    background-image: url('icons/icons8-stack-of-books-100.png');
+    background-image: url('../icons/icons8-stack-of-books-100.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;

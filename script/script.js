@@ -341,10 +341,10 @@ const check_window_size = function(){
     const windowWidth = document.documentElement.clientWidth;
     const stylesheetLink = document.getElementById('styles');
     if(windowWidth < 900){
-        stylesheetLink.setAttribute('href', 'main-mobile.css');
+        stylesheetLink.setAttribute('href', 'style/main-mobile.css');
     }
     else{
-        stylesheetLink.setAttribute('href', 'main-desktop.css');
+        stylesheetLink.setAttribute('href', 'style/main-desktop.css');
     }
 }
 
