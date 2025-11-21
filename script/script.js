@@ -39,6 +39,19 @@ const show_feedback_form = function(){
 
 }
 
+const actually_close_the_feedback_form = function(){
+    const form = Array.from(document.getElementsByClassName('feedback-form'))[0];
+    const fieldset = form.children[1].children[0].children[0];
+    fieldset.value = '';
+    form.classList.remove('feedback-show');
+    const backdrop = Array.from(document.getElementsByClassName('backdrop'))[0];
+    backdrop.classList.remove('backdrop-show');
+}
+
+const close_feedback_form = function(){
+    document.getElementById('close-feedback').addEventListener('click', actually_close_the_feedback_form);
+}
+
 const submit_feedback = function(){
     const form = Array.from(document.getElementsByName('form-for-feedback'))[0];
     form.addEventListener('submit', async(event) => {
@@ -58,7 +71,7 @@ const submit_feedback = function(){
                 switch(response.status){
                     case 200:
                         window.alert("Success ! Thanks for the message.");
-                        close_feedback_form();
+                        actually_close_the_feedback_form();
                         return;
                     case 400:
                         window.alert("Sorry :/ it looks like there was an issue with that request, please try agian tho");
@@ -81,15 +94,7 @@ const submit_feedback = function(){
     })
 }
 
-const close_feedback_form = function(){
-    document.getElementById('close-feedback').addEventListener('click', () => {
-        const form = Array.from(document.getElementsByClassName('feedback-form'))[0];
-        form.classList.remove('feedback-show');
-        const backdrop = Array.from(document.getElementsByClassName('backdrop'))[0];
-        backdrop.classList.remove('backdrop-show');
-    });
 
-}
 
 const feedback_functionality = function(){
     show_feedback_form();
@@ -97,7 +102,6 @@ const feedback_functionality = function(){
     submit_feedback();
 
 }
-
 
 
 const container_styling = function(iconContainerId){
