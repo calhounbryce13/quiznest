@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
     listen_for_resize();
 
+    feedback_functionality();
+
     form_functionality();
 
     flashcard_generation();
@@ -25,6 +27,72 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
 });
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+const show_feedback_form = function(){
+    document.getElementById('feedback').addEventListener('click', () => {
+        const backdrop = Array.from(document.getElementsByClassName('backdrop'))[0];
+        backdrop.classList.add('backdrop-show');
+        const form = Array.from(document.getElementsByClassName('feedback-form'))[0];
+        form.classList.add('feedback-show');
+    });
+
+}
+
+const submit_feedback = function(){
+    const form = Array.from(document.getElementsByName('form-for-feedback'))[0];
+    form.addEventListener('submit', async(event) => {
+        event.preventDefault();
+        const input = event.target.children[0].children[0];
+        if((input.value).trim() != ''){
+            try{
+                const response = await fetch('https://calhounbryce13-backend.onrender.com/mailer', {
+                    method: "GET"
+                })
+                switch(response.status){
+                    case 200:
+                        window.alert("Success ! Thanks for the message.");
+                        close_feedback_form();
+                        return;
+                    case 400:
+                        window.alert("Sorry :/ it looks like there was an issue with that request, please try agian tho");
+                        return;
+                    case 500:
+                        window.alert("Sorry :/ it looks like there was an isse communicating with the database, please try again tho");
+                        return;
+                    default:
+                        window.alert("Sorry :/ an unexpected issue occured, please try again");
+                        return;
+                }
+            }catch(error){
+                console.log(error);
+                window.alert("There was an error sending the request, please try again");
+                return;
+            }
+        }
+        window.alert("please add text to the feedback form before you submit");
+        return;
+    })
+}
+
+const close_feedback_form = function(){
+    document.getElementById('close-feedback').addEventListener('click', () => {
+        const form = Array.from(document.getElementsByClassName('feedback-form'))[0];
+        form.classList.remove('feedback-show');
+        const backdrop = Array.from(document.getElementsByClassName('backdrop'))[0];
+        backdrop.classList.remove('backdrop-show');
+    });
+
+}
+
+const feedback_functionality = function(){
+    show_feedback_form();
+    close_feedback_form();
+    submit_feedback();
+
+}
+
+
 
 const container_styling = function(iconContainerId){
     const container = document.createElement('div');
