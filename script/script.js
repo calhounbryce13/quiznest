@@ -515,6 +515,7 @@ const add_new_row = function(){
     }
     const myFieldset = Array.from(document.getElementsByTagName('fieldset'))[0];
     myFieldset.appendChild(newContainer);
+    dynamic_textarea_height();
 }
 
 const store_info = function(inputs, numInputs){
