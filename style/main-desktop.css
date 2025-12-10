@@ -51,14 +51,24 @@ html, body{
     font-family: 'zain';
 }
 
+.hero-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    position: absolute;
+    transform: translate(-50%, -50%);
+
+
+}
+
 
 .hero-image{
     height: var(--hero-size);
     width: var(--hero-size);
     background-color: var(--soft-teal);
     border-radius: 20px;
-    position: absolute;
-    transform: translate(-50%, -50%);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -66,14 +76,24 @@ html, body{
     
 }
 
-#image1{
+#hero1{
     top: 60%;
     left: 20%;
+
 }
-#image2{
+
+#image1{
+
+}
+
+
+#hero2{
     top: 40%;
     left: 80%;
 
+}
+#image2{
+    background-image: url('../media/Screenshot\ 2025-12-10\ 142044.png');
 }
 
 
