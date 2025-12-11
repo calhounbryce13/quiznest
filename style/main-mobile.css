@@ -11,6 +11,9 @@
     --deep-slate: rgba(50, 70, 80, 1);
     --light-mint: rgba(230, 250, 250, 1);
     --deep-orange: rgba(242, 153, 74, 1);
+
+    --hero-size: 65vw;
+
 }
 
 
@@ -18,8 +21,38 @@
     font-family: 'zain';
 }
 
+
+.hero-content{
+    margin-bottom: 3vh;
+    margin-top: 3vh;
+    position: relative;
+}
+
+.hero-content p{
+    max-width: var(--hero-size);
+}
+
 .hero-image{
-    display: none;
+    height: var(--hero-size);
+    width: var(--hero-size);
+    background-color: var(--soft-teal);
+    border-radius: 20px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 6px solid var(--deep-slate);
+}
+
+#hero1{
+    left: 15vw;
+}
+
+#hero2{
+    left: -15vw;
+}
+
+#image2{
+    background-image: url('../media/Screenshot\ 2025-12-10\ 142044.png');
 }
 
 
