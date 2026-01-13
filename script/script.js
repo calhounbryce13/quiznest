@@ -56,13 +56,10 @@ const submit_feedback = function(){
         event.preventDefault();
         const input = event.target.children[0].children[0];
         if((input.value).trim() != ''){
-
-
-
             let animationInstance = false;
             const timer = setTimeout(() => {
                 animationInstance = show_loading();
-            }, 500)
+            }, 1)
             try{
                 const response = await fetch('https://calhounbryce13-backend.onrender.com/mailer', {
                     method: "POST",
