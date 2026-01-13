@@ -565,7 +565,7 @@ const show_loading = function(){
         renderer: 'svg',
         loop: true,
         autoplay: true,
-        path: '../media/Loader.json'
+        path: '../quiznest/media/Loader.json'
     });
 }
 
