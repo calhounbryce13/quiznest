@@ -159,6 +159,7 @@ header{
     margin-right: 2vw;
     height: 90%;
     width: 5%;
+    cursor: pointer;
 }
 #feedback:active{
     filter: brightness(55%);

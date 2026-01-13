@@ -154,6 +154,8 @@ textarea:focus{
     margin-right: 2vw;
     height: 90%;
     width: 15%;
+    cursor: pointer;
+
 }
 #feedback:active{
     filter: brightness(55%);
@@ -227,6 +229,8 @@ fieldset > button:hover{
 }
 
 #close-feedback{
+    cursor: pointer;
+
     background-color: var(--light-mint);
     font-size: 5vw;
     border-radius: 10px;
