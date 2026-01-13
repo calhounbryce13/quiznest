@@ -1,7 +1,5 @@
 'use strict';
 
-//! need to refresh the page in order to delete after deleting a card !
-//! empty set message doesn't show consistently !
 
 
 document.addEventListener('DOMContentLoaded', ()=>{
@@ -22,7 +20,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
     card_flip_functionality();
 
-    delete_card_functionality(); //todo
+    delete_card_functionality(); 
 
 
 });
@@ -58,6 +56,13 @@ const submit_feedback = function(){
         event.preventDefault();
         const input = event.target.children[0].children[0];
         if((input.value).trim() != ''){
+
+
+
+            let animationInstance = false;
+            const timer = setTimeout(() => {
+                animationInstance = show_loading();
+            }, 500)
             try{
                 const response = await fetch('https://calhounbryce13-backend.onrender.com/mailer', {
                     method: "POST",
@@ -87,6 +92,10 @@ const submit_feedback = function(){
                 console.log(error);
                 window.alert("There was an error sending the request, please try again");
                 return;
+            }
+            finally{
+                clearTimeout(timer);
+                if(animationInstance) dismiss_loading(animationInstance);
             }
         }
         window.alert("please add text to the feedback form before you submit");
@@ -378,16 +387,11 @@ const build_quiz_button_container = function(){
     return container;
 }
 
-//! uncomment this
 const populate_flashcard_view = function(questions, answers){
     let numCards = answers.length;
     const flashCards = document.getElementById('flashCards');
     console.log(numCards);
     for(let i = 0; i < numCards; i++){
-        if(i == 0){
-            //!const quizContainer = build_quiz_button_container();
-            //!flashCards.append(quizContainer);
-        }
         if(answers[i] != ""){
             const newFlashcard = make_flashcard(questions, answers, i);
             flashCards.appendChild(newFlashcard);
@@ -521,7 +525,6 @@ const add_new_row = function(){
 const store_info = function(inputs, numInputs){
     let questions = [];
     let answers = [];
-    //console.log(JSON.parse(localStorage.getItem('Quiznest')))
     if(JSON.parse(localStorage.getItem('Quiznest')).answers){
         if((JSON.parse(localStorage.getItem('Quiznest')).answers)[0] != ""){
             questions = JSON.parse(localStorage.getItem('Quiznest')).questions;
@@ -554,4 +557,23 @@ const display_empty_message = function(){
 
     flashCards.appendChild(messageContainer);
     
+}
+
+
+const show_loading = function(){
+    const animation = document.getElementById('lottie-loading-animation');
+    animation.style.display = 'flex';
+    return lottie.loadAnimation({
+        container: animation,
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: '../media/Loader.json'
+    });
+}
+
+const dismiss_loading = function(animationInstance){
+    const animation = document.getElementById('lottie-loading-animation');
+    animation.style.display = 'none';
+    animationInstance.destroy();
 }
