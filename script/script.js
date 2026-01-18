@@ -551,26 +551,37 @@ const display_empty_message = function(){
     let messageContainer = document.createElement('div');
     messageContainer.classList.add('empty-container');
     messageContainer.appendChild(messageText);
-
     flashCards.appendChild(messageContainer);
     
+}
+
+
+const acquire_backdrop = function(animation){
+    const newIndex = window.getComputedStyle(animation).zIndex;
+    const backdrop = Array.from(document.getElementsByClassName('backdrop'))[0];
+    backdrop.style.zIndex = (newIndex - 1);
 }
 
 
 const show_loading = function(){
     const animation = document.getElementById('lottie-loading-animation');
     animation.style.display = 'flex';
+    acquire_backdrop(animation);
     return lottie.loadAnimation({
         container: animation,
         renderer: 'svg',
         loop: true,
         autoplay: true,
-        path: '../quiznest/media/Loader.json'
+        path: '/media/Loader.json'
     });
 }
+
+
 
 const dismiss_loading = function(animationInstance){
     const animation = document.getElementById('lottie-loading-animation');
     animation.style.display = 'none';
     animationInstance.destroy();
 }
+
+
