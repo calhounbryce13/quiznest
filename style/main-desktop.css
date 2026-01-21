@@ -342,6 +342,8 @@ input:focus{
     height: 4vh;
     width: 3vw;
     background-size: contain;
+    cursor: pointer;
+
 }
 
 /******************************* anchors *******************************************/
