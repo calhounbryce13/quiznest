@@ -555,6 +555,8 @@ a{
     height: 6vh;
     width: 8vw;
     font-size: 1.5vw;
+    cursor: pointer;
+
 }
 .progressButton:active{
     filter: brightness(85%);
