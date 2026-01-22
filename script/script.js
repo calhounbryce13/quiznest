@@ -42,7 +42,7 @@ const collect_user_data = async() => {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                "application": "Portfolio page"
+                "application": "Quiznest"
             })
         })
     }catch(error){
