@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
     listen_for_resize();
 
+    collect_user_data();
+
     feedback_functionality();
 
     form_functionality();
@@ -25,6 +27,28 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
 });
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+const collect_user_data = async() => {
+    /* 
+    Description: This is a function a plan to only have up temporarily just to monitor any traffic I may get.
+                will send the app name to my web service so I know when it is accessed.
+    */
+    try{
+        const response = await fetch('https://calhounbryce13-backend.onrender.com/get-user-data', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                "application": "Portfolio page"
+            })
+        })
+    }catch(error){
+        console.log(error);
+    }
+}
 
 
 const show_feedback_form = function(){
