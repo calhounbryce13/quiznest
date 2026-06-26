@@ -1,6 +1,24 @@
 'use strict';
 
 
+const log_traffic = async () => {
+    try{
+        await fetch("https://calhounbryce13-backend.onrender.com/traffic-log", {
+            method: "PUT",
+            headers: {
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify({
+                programName: "minimaxSolver"
+            })
+        });
+    }catch(error){
+        console.log(error);
+    }
+};
+log_traffic();
+
+
 
 document.addEventListener('DOMContentLoaded', ()=>{
 
